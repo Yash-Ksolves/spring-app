@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  {{ include "my-chart.fullname" . | printf "mysqldb-%s" }}
+spec:
+  selector:
+    app: {{ .Values.mysqldb.service.selector.appName }}
+  ports:
+    - protocol: {{ .Values.mysqldb.service.protocol }}
+      port: {{ .Values.mysqldb.service.port }}

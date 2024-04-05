@@ -1,9 +1,20 @@
-<b>Project Setup :-</b>
-<br>
-1. Clone the repo -> <b>git clone https://github.com/YashChouhan1/New-Docker-Springboot.git -b test-branch</b> <br>
-2. Change the directory -> <b>cd New-Docker-Springboot</b><br>
-3. run command-> <b>mvn clean package</b><br>  !!Must have JDK and maven installed - https://www.digitalocean.com/community/tutorials/install-maven-linux-ubuntu
-4. then, run -> <b>docker-compose up</b>
+## Prerequisites
+- JDK and Maven installed ([Installation guide](https://www.digitalocean.com/community/tutorials/install-maven-linux-ubuntu))
 
-If encountered, PermissionError: [Errno 13] Permission denied: '/home/user/sample/New-Docker-Springboot/mysql_data/performance_schema' run -> sudo rm -rf mysql_data
-
+## Steps
+1. Clone the repository:
+   ```shell
+   git clone https://github.com/Yash-Ksolves/spring-app.git
+   ```
+2. Change the directory:
+   ```shell
+   cd spring-app
+   ```
+3. Build the project:
+   ```shell
+   mvn clean package
+   ```
+4. Run Docker Compose to start the application:
+   ```shell
+   docker-compose up
+   ```

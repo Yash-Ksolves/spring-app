@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name:  {{ include "my-chart.fullname" . | printf "mysqldb-%s" }}
+spec:
+  serviceName: {{ .Values.mysqldb.serviceName  }}
+  replicas: {{ .Values.mysqldb.replicaCount  }}
+  selector:
+    matchLabels:
+      app: {{ .Values.mysqldb.selector.label.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.mysqldb.template.label.appName }}
+    spec:
+      containers:
+        - name: {{ .Values.mysqldb.containerName }}
+          image: "{{- .Values.mysqldb.image.repository -}}:{{- .Values.mysqldb.image.tag -}}"
+          envFrom:
+            - configMapRef:
+                name: {{ .Values.mysqldb.configMapName }}
+          ports:
+            - containerPort: {{ .Values.mysqldb.containerPort }}
+          volumeMounts:
+            - name: {{ .Values.mysqldb.volumeMounts.name }}
+              mountPath: {{ .Values.mysqldb.volumeMounts.mountPath  }}
+      volumes:
+        - name: {{ .Values.mysqldb.volumes.name  }}
+          hostPath:
+            path: {{ .Values.mysqldb.volumes.path  }}
