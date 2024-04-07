@@ -4,7 +4,7 @@ const dataContainer = document.getElementById('dataContainer');
 fetchButton.addEventListener('click', fetchData);
 
 function fetchData() {
-    fetch('http://localhost:9000/all')
+    fetch('http://backend:8080/all')           // http://localhost:9090/all
         .then(response => response.json())
         .then(data => {
             displayData(data);

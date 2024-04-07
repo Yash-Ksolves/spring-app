@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: yashchouhan/backend-nv1:57
+          image: yashchouhan/backend:13
           ports:
             - containerPort: 8080
           envFrom:

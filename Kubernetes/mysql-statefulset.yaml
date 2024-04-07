@@ -27,4 +27,4 @@ spec:
       volumes:
         - name: mysql-data
           hostPath:
-            path: /home/yashksi179/db
+            path: /opt/db
